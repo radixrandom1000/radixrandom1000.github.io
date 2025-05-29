@@ -12,7 +12,7 @@
 
     header {
       background-color: #232f3e;
-      color: white;
+      color: rgb(255, 255, 255);
       padding: 1em 2em;
       display: flex;
       align-items: center;
@@ -71,34 +71,51 @@
     form {
       padding: 2em;
       background-color: white;
-      max-width: 600px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
       margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     form h2 {
       margin-top: 0;
+      text-align: center;
+    }
+
+    form label {
+      display: block;
+      margin-top: 1em;
+      font-weight: bold;
     }
 
     form input, form select, form textarea {
       width: 100%;
       padding: 0.7em;
-      margin: 0.5em 0;
+      margin-top: 0.5em;
       border: 1px solid #ccc;
       border-radius: 5px;
+      box-sizing: border-box;
     }
 
     form button {
-      width: 100%;
+      position: fixed;
+      bottom: 1%;
+      left: 70%;
+      width: 25%;
       background-color: #28a745;
       color: white;
       border: none;
       padding: 1em;
-      border-radius: 5px;
+      border-radius: 100px;
       font-weight: bold;
-      margin-top: 1em;
+      margin-top: 1.5em;
       cursor: pointer;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    form button:hover {
+      background-color: #218838;
     }
   </style>
 </head>
@@ -108,41 +125,10 @@
   <h1>Bichoute shop</h1>
 </header>
 
-<section class="products">
-  <div class="product">
-    <img src="https://raw.githubusercontent.com/radixrandom1000/site/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-20%2019-38-19.png" alt="Produit 1">
-    <h3>Cocaïne</h3>
-    <p><strong>Prix : 90€ le gramme</strong></p>
-  </div>
-
-  <div class="product">
-    <img src="https://raw.githubusercontent.com/radixrandom1000/site/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-20%2019-52-29.png" alt="Produit 2">
-    <h3>puff JNR</h3>
-    <p><strong>Prix : 20€ à 25€</strong></p>
-  </div>
-
-  <div class="product">
-    <img src="https://raw.githubusercontent.com/radixrandom1000/site/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-20%2019-38-12.png" alt="Produit 2">
-    <h3>shit</h3>
-    <p><strong>Prix : 15€ le gramme</strong></p>
-  </div>
-
-  <div class="product">
-    <img src="https://raw.githubusercontent.com/radixrandom1000/radixrandom1000.github.io/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-27%2018-19-52.png" alt="Produit 2">
-    <h3>Cigarette</h3>
-    <p><strong>Prix : 2€ l'unités / 14€ le paquet</strong></p>
-  </div>
-
-  <div class="product">
-    <img src="https://raw.githubusercontent.com/radixrandom1000/radixrandom1000.github.io/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-28%2023-43-29.png" alt="Produit 2">
-    <h3>Ecstasy (Indisponible pour le moment mais arrive bientôt)</h3>
-    <p><strong>Prix : 150€ l’unités / 1500€ le paquet de 10</strong></p>
-  </div>
-
-</section>
 
 <form action="https://formspree.io/f/mjkwzlkb" method="POST">
-  <h2>Finaliser la commande</h2>
+
+  <h2>Commande :</h2>
 
   <label>Nom :</label>
   <input type="text" name="nom" required>
@@ -159,7 +145,12 @@
   <label>tel :</label>
   <input type="text" name="tel" required>
 
-  <label>Quantité de Cocaïne (en grammes) :</label>
+<section class="products">
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/radixrandom1000/site/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-20%2019-38-19.png" alt="Produit 1">
+    <h3>Cocaïne</h3>
+    <p><strong>Prix : 90€ le gramme</strong></p>
+      <label>Quantité de Cocaïne (en grammes) :</label>
   <select name="Cocaïne" id="Cocaïne">
     <option value="">-- Choisir --</option>
     <option value="1g">1g</option>
@@ -167,8 +158,14 @@
     <option value="10g">10g</option>
     <option value="20g">20g</option>
   </select>
+  </div>
 
-  <label>Goût des puff JNR :</label>
+
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/radixrandom1000/site/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-20%2019-52-29.png" alt="Produit 2">
+    <h3>puff JNR</h3>
+    <p><strong>Prix : 20€ à 25€</strong></p>
+      <label>Goût des puff JNR :</label>
   <select name="puff JNR" id="puff JNR">
     <option value="">-- Sélectionne un goût --</option>
     <option value="Two Apple">Two Apple</option>
@@ -242,9 +239,14 @@
     <option value="Black Dragon Ice">Black Dragon Ice</option>
     <option value="Fizzy Cherry Cola">Fizzy Cherry Cola</option>
   </select>
+  </div>
 
 
-  <label>Quantité de shit (en grammes) :</label>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/radixrandom1000/site/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-20%2019-38-12.png" alt="Produit 2">
+    <h3>shit</h3>
+    <p><strong>Prix : 15€ le gramme</strong></p>
+      <label>Quantité de shit (en grammes) :</label>
   <select name="shit" id="shit">
     <option value="">-- Choisir --</option>
     <option value="10g">10g</option>
@@ -252,8 +254,14 @@
     <option value="50g">50g</option>
     <option value="100g">100g</option>
   </select>
+  </div>
 
-    <label>Cigarette (paquets/unités) :</label>
+
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/radixrandom1000/radixrandom1000.github.io/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-27%2018-19-52.png" alt="Produit 2">
+    <h3>Cigarette</h3>
+    <p><strong>Prix : 2€ l'unités / 14€ le paquet</strong></p>
+        <label>Cigarette (paquets/unités) :</label>
   <select name="cigarette" id="cigarette">
     <option value="">-- Choisir --</option>
     <option value="paquets">un paquet</option>
@@ -277,9 +285,14 @@
     <option value="18 cigarettes">18 Cigarettes</option>
     <option value="19 cigarettes">19 Cigarettes</option>
   </select>
+  </div>
 
 
-      <label>(Indisponible pour le moment, si vous sélectionnez une de ces options, elle ne sera pas envoyée.) Ecstasy (paquets/unités) :</label>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/radixrandom1000/radixrandom1000.github.io/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%20du%202025-05-28%2023-43-29.png" alt="Produit 2">
+    <h3>Ecstasy (Indisponible pour le moment mais arrive bientôt)</h3>
+    <p><strong>Prix : 150€ l’unités / 1500€ le paquet de 10</strong></p>
+          <label>(Indisponible pour le moment, si vous sélectionnez une de ces options, elle ne sera pas envoyée.) Ecstasy (paquets/unités) :</label>
   <select name="Ecstasy" id="Ecstasy">
     <option value="">-- Choisir --</option>
     <option value="paquets">un paquet</option>
@@ -364,7 +377,7 @@
     <option value="99 Ecstasy">99 Ecstasy</option>
     <option value="100 Ecstasy">100 Ecstasy</option>
   </select>
-
+  </div>
 
 
   <button type="submit">Envoyer la commande</button>
